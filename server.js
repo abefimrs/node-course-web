@@ -10,6 +10,14 @@ hbs.registerPartials(__dirname + '/views/partials')
 app.set('view engine', 'hbs');
 app.use(express.static(__dirname + '/public'));
 
+/*
+app.use((req, res, next) => {
+	res.render('maintanance.hbs', {
+		pageTitle: 'Under Maintenance!',
+		welcomeMessage: 'Site Under Maintenance'
+	});
+});
+*/
 
 app.use((req,res,next) => {
 
@@ -23,12 +31,7 @@ app.use((req,res,next) => {
 	next();
 });
 
-app.use((req, res, next) => {
-	res.render('maintanance.hbs', {
-		pageTitle: 'Under Maintenance!',
-		welcomeMessage: 'Site Under Maintenance'
-	});
-});
+
 
 hbs.registerHelper('getCurrentYear', () => {
   return new Date().getFullYear()
